@@ -1,0 +1,23 @@
+name: CI
+on:
+  push:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 14
+      - run: npm install
+      - run: npm run build
+      - run: |
+        git checkout --orphan=heroku
+        git config user.name ${GITHUB_ACTOR:-github-actions}
+        git config user.email ${GITHUB_ACTOR:-github-actions}@users.noreply.github.com
+      #  cat .gitignore|grep -v "\.nuxt\|\.next\|dist">.gitignore
+       '[[ -e .nuxt ]] && git add .nuxt'
+       '[[ -e .next ]] && git add .next'
+       git commit -m 'built by github actions'
+       git push origin heroku --force
