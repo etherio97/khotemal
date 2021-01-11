@@ -1,1 +1,1 @@
-web: ./node_modules/.bin/nuxt start -H 0.0.0.0 -p $PORT
+web: npm start --hostname=${HOST:-0.0.0.0} --port=${PORT:-3000}

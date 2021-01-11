@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start -H ${HOST:-0.0.0.0} -p ${PORT:-3000}",
+    "start": "nuxt start",
     "generate": "nuxt generate"
   },
   "dependencies": {
