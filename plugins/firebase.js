@@ -20,12 +20,12 @@ if (!process.env.FIREBASE_INITIALIZED_APP) {
   process.env.FIREBASE_INITIALIZED_APP = true;
   firebase.initializeApp(firebaseConfig);
   if (process.env.NODE_ENV === "production") {
-    app.analytics();
-    app.performance();
+    firebase.analytics();
+    firebase.performance();
   }
 }
 
 Vue.prototype.$auth = firebase.auth;
 Vue.prototype.$database = firebase.database;
 Vue.prototype.$storage = firebase.storage;
-Vue.prototype.$analytic = firebase.analytics;
+Vue.prototype.$analytics = firebase.analytics;
