@@ -70,10 +70,10 @@ export default {
 
   computed: {
     attributeTitle() {
-      return PRIMARY_ATTRIBUTES[this.attribute]["title"];
+      return PRIMARY_ATTRIBUTES[this.attribute].title;
     },
     attributeIcon() {
-      return PRIMARY_ATTRIBUTES[this.attribute]["icon"];
+      return PRIMARY_ATTRIBUTES[this.attribute].icon;
     },
     heroAvatar() {
       return HERO_IMAGE_SB.replace("{{slug}}", this.slug.slice(14));

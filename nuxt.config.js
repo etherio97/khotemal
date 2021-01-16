@@ -11,24 +11,15 @@ export default {
     ],
     link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }]
   },
-
   css: [],
-
-  plugins: ["@/plugins/firebase"],
-
   components: true,
-
-  buildModules: ["@nuxtjs/vuetify"],
-
-  modules: [
-    // https://go.nuxtjs.dev/axios
-    "@nuxtjs/axios"
+  plugins: [
+    { src: "@plugins/admin", mode: "server" },
+    { src: "@plugins/firebase", mode: "server" }
   ],
-
-  // Axios module configuration (https://go.nuxtjs.dev/config-axios)
+  buildModules: ["@nuxtjs/vuetify"],
+  modules: ["@nuxtjs/axios"],
   axios: {},
-
-  // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
@@ -46,7 +37,6 @@ export default {
       }
     }
   },
-
-  // Build Configuration (https://go.nuxtjs.dev/config-build)
-  build: {}
+  build: {},
+  serverMiddleware: [{ path: "/api", handler: "~/api/main.js" }]
 };

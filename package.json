@@ -3,19 +3,27 @@
   "version": "1.0.0",
   "private": true,
   "engines": {
-    "node": "15.x"
+    "node": ">=12.x.x",
+    "npm": ">=6.x.x"
   },
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt start -H 0.0.0.0 -p ${PORT-3000}",
-    "generate": "nuxt generate"
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "admin:cert": "curl -o ${GOOGLE_APPLICATION_CREDENTIALS:-'service-account.json'} $GOOGLE_CREDENTIALS_URL"
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/vuetify": "^1.11.2",
+    "body-parser": "^1.19.0",
     "core-js": "^3.6.5",
+    "express": "^4.17.1",
     "firebase": "^8.2.2",
+    "firebase-admin": "^9.4.2",
+    "firebase-tools": "^9.2.1",
+    "fs": "^0.0.1-security",
+    "net": "^1.0.2",
     "nuxt": "^2.14.6"
   }
 }

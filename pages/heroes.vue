@@ -192,18 +192,6 @@ export default {
     sorting: ["Name", "Attribute", "Team"],
     heroes: [],
   }),
-  async beforeCreate() {
-    const database = this.$database().ref("v1");
-    try {
-      const ref = database.child("heroes");
-      const snapshot = await ref.get();
-      const data = snapshot.val();
-      this.heroes = Object.values(data);
-    } catch (e) {
-      console.error(e);
-    }
-  },
-
   computed: {
     radiant() {
       return this.heroes.filter(({ id }) => radiants.includes(id));
